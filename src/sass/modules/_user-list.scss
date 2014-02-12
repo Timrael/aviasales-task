@@ -1,0 +1,68 @@
+$color-text: #464747;
+$color-heading: #1b4862;
+$color-line: #626363;
+
+.user-list {
+	margin-left: -24px;
+	padding: 10px 0 0;
+	@include clearfix;
+}
+
+%user-list__item-line {
+	position: absolute;
+	background: $color-line;
+	@include box-shadow(0 0 1px $color-line);
+}
+
+.user-list__item {
+	float: left;
+	width: 49.999%;
+	position: relative;
+	padding: 11px 10px 11px 24px;
+	@include box-sizing(border-box);
+
+	@include after {
+		@extend %user-list__item-line;
+		height: 1px;
+		left: 34px;
+		right: 30px;
+		bottom: 0px;
+	}
+
+	@include before {
+		@extend %user-list__item-line;
+		width: 1px;
+		top: 8px;
+		bottom: 20px;
+		right: 0px;
+	}
+
+	&:nth-child(2n):before {
+		display: none;
+	}
+}
+
+.user-list__thumb {
+	float: left;
+	margin-right: 20px;
+	width: 50px;
+	height: 50px;
+}
+
+.user-lise__content {
+	overflow: hidden;
+	
+	h3 {
+		margin: 0 0 4px;
+		color: $color-heading;
+		font-size: 17px;
+		font-weight: normal;
+	}
+
+	p {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		color: $color-text;
+	}
+}
